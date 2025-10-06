@@ -18,7 +18,7 @@ export function Header() {
           </div>
 
           <a
-            href="https://github.com"
+            href="https://github.com/manni2000/CodeOrchestra.ai"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors duration-200 text-sm font-medium"
