@@ -20,7 +20,6 @@ CodeOrchestra.ai is a web app powerful and intuitive task management tool design
 - **Build Tool**: Vite
 - **Styling**: Tailwind CSS
 - **Icons**: Lucide React
-- **Backend (as per dependencies)**: Supabase (client-side)
 - **Linting**: ESLint
 
 ## Getting Started
