@@ -222,12 +222,12 @@ function App() {
   }) || [];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 text-sm sm:text-base">
       <Header />
       <Onboarding />
       <KeyboardShortcuts />
 
-      <main className="max-w-7xl mx-auto px-6 py-8">
+      <main className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8">
         {!task ? (
           <div className="space-y-12">
             <div className="mt-12">
@@ -237,7 +237,7 @@ function App() {
           </div>
         ) : (
           <div className="space-y-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-0 sm:justify-between">
               <button
                 onClick={handleReset}
                 className="flex items-center gap-2 px-4 py-2 bg-white text-slate-700 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors duration-200 font-medium"
@@ -246,8 +246,8 @@ function App() {
                 New Task
               </button>
 
-              <div className="flex items-center gap-3">
-                <div className="flex items-center gap-1 bg-white rounded-lg border border-slate-200 p-1">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3 w-full sm:w-auto">
+                <div className="flex items-center gap-1 bg-white rounded-lg border border-slate-200 p-0.5 sm:p-1">
                   <button
                     onClick={() => setViewMode('list')}
                     className={`px-3 py-1.5 rounded transition-colors ${
@@ -294,8 +294,8 @@ function App() {
               </div>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-6">
-              <div className="lg:col-span-2 space-y-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
+              <div className="lg:col-span-2 space-y-4 sm:space-y-6">
                 <TaskOverview task={task} />
 
                 {viewMode === 'workflow' ? (
@@ -361,7 +361,7 @@ function App() {
 
       {task && <AIChatPanel taskTitle={task.title} onSuggestionApply={(suggestion) => console.log(suggestion)} />}
 
-      <footer className="max-w-7xl mx-auto px-6 py-8 mt-12 border-t border-slate-200">
+      <footer className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 mt-8 sm:mt-12 border-t border-slate-200">
         <div className="text-center text-sm text-slate-600">
           <p>
             Built with TypeScript, React, and Tailwind CSS • Inspired by{' '}

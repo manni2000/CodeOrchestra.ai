@@ -88,19 +88,20 @@ export function AIChatPanel({ taskTitle, onSuggestionApply }: AIChatPanelProps) 
       {!isOpen ? (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4 rounded-full shadow-2xl z-50 hover:scale-110 transition-transform"
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white p-3 sm:p-4 rounded-full shadow-2xl z-50 hover:scale-110 active:scale-95 transition-transform"
+          aria-label="Open AI Chat"
         >
-          <Bot size={28} />
+          <Bot size={24} className="sm:w-7 sm:h-7" />
         </button>
       ) : (
-        <div className="fixed bottom-6 right-6 w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col z-50 animate-slide-up" style={{ maxHeight: 'calc(100vh - 4.5rem)' }}>
+        <div className="fixed inset-0 sm:inset-auto sm:bottom-6 sm:right-6 sm:top-auto w-full sm:w-[95vw] sm:max-w-lg bg-white rounded-none sm:rounded-2xl shadow-2xl border border-slate-200 flex flex-col z-50 animate-slide-up" style={{ maxHeight: '100vh' }}>
           <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-4 rounded-t-2xl flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="bg-white/20 p-2 rounded-lg">
                 <Bot size={20} />
               </div>
               <div>
-                <h3 className="font-semibold">AI Plan Assistant</h3>
+                <h3 className="font-semibold text-sm sm:text-base">AI Plan Assistant</h3>
                 <p className="text-xs text-white/80">Ask me anything about your plan</p>
               </div>
             </div>
@@ -112,7 +113,7 @@ export function AIChatPanel({ taskTitle, onSuggestionApply }: AIChatPanelProps) 
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto p-4 space-y-4">
+          <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4">
             {messages.map((message) => (
               <div
                 key={message.id}
@@ -148,7 +149,7 @@ export function AIChatPanel({ taskTitle, onSuggestionApply }: AIChatPanelProps) 
             <div ref={messagesEndRef} />
           </div>
 
-          <div className="p-4 border-t border-slate-200 space-y-3">
+          <div className="p-3 sm:p-4 border-t border-slate-200 space-y-2 sm:space-y-3">
             <div className="flex flex-wrap gap-2">
               {quickActions.map((action, idx) => (
                 <button
@@ -157,7 +158,7 @@ export function AIChatPanel({ taskTitle, onSuggestionApply }: AIChatPanelProps) 
                     setInput(action);
                     setTimeout(() => handleSend(), 100);
                   }}
-                  className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-medium hover:bg-slate-200 transition-colors"
+                  className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-medium hover:bg-slate-200 active:bg-slate-300 transition-colors whitespace-nowrap overflow-hidden text-ellipsis max-w-[120px] sm:max-w-none"
                 >
                   {action}
                 </button>
@@ -171,12 +172,12 @@ export function AIChatPanel({ taskTitle, onSuggestionApply }: AIChatPanelProps) 
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                 placeholder="Ask to refine the plan..."
-                className="flex-1 px-4 py-2 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm"
+                className="flex-1 min-w-0 px-3 sm:px-4 py-2 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm"
               />
               <button
                 onClick={handleSend}
                 disabled={!input.trim()}
-                className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                className="px-3 sm:px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 active:from-blue-700 active:to-purple-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
               >
                 <Send size={18} />
               </button>
